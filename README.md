@@ -10,6 +10,7 @@ establish a simplified Chinese chess
 
 
 /****************/
+```javascript
 var qizi={
 ju:"\u{8eca}",
 ma:"\u{99ac}",
@@ -23,11 +24,12 @@ jiang:"\u{5c07}",
 xang:"\u{8c61}",
 si:"\u{4ed5}",
 test:""};
+```
 /*****************
       draw 9by10 "div"s stand for chessboard.
 RC is an array, of which the index number  indicate the chessboard coordinat. The index number range from 0 to 89. The elements of RC are arrays, which indicate the coordinate of chessboard in the form of (row,collumn), for example,0=> (0,0),15=>(1,5),89=>(8,9) etc.
 ********************/
-
+```javascript
 var RC=[];
 var chessboard=document.createElement("div");
 chessboard.style=`display:block;
@@ -49,10 +51,11 @@ for(var i=0;i<9;i++){
 
 var container=
 document.createDocumentFragment();
-
+```
 /************************************
     draw chessboard
 ************************************/
+```javascript
 var selectMode=true;
 
 RC.forEach(function(x,index){
@@ -105,6 +108,8 @@ overflow:visible`;
 
 
    chessboard.appendChild(container);
+   
+```
 /***************************************
     show different appearance between actived and inactived divs.
 ***************************************/ function active(DIV){
