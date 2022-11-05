@@ -2,14 +2,9 @@
 for fun
 that's interesting. my big project is to create an artificial intelligence.
 Recently, I wrote a simplified Chinese chess.
-/*************
 
-establish a simplified Chinese chess
-*************/
+## establish a simplified Chinese chess
 
-
-
-/****************/
 ```javascript
 var qizi={
 ju:"\u{8eca}",
@@ -25,10 +20,10 @@ xang:"\u{8c61}",
 si:"\u{4ed5}",
 test:""};
 ```
-/*****************
-      draw 9by10 "div"s stand for chessboard.
+
+##     draw 9by10 "div"s stand for chessboard.
 RC is an array, of which the index number  indicate the chessboard coordinat. The index number range from 0 to 89. The elements of RC are arrays, which indicate the coordinate of chessboard in the form of (row,collumn), for example,0=> (0,0),15=>(1,5),89=>(8,9) etc.
-********************/
+
 ```javascript
 var RC=[];
 var chessboard=document.createElement("div");
@@ -112,7 +107,9 @@ overflow:visible`;
 ```
 /***************************************
     show different appearance between actived and inactived divs.
-***************************************/ function active(DIV){
+***************************************/ 
+```js
+function active(DIV){
      DIV.style.borderColor="green";
      DIV.setAttribute("class","active");
    }  
@@ -164,9 +161,12 @@ selected:green circle<br>"+
 log2.onclick=function(){
      alert("temporary can do nothing");
 };
+```
 /****************************************
     define a chess object.
 ****************************************/
+```js
+
   function chess(name, r, c, flag){
       this.name=name;
       this.x=r;
@@ -188,9 +188,13 @@ div.style.color=this.flag;
 chess.prototype.toString=function(){
     return this.flag+qizi[this.name]+this.x+this.y;
 };
+
+```
 /************************************
      layout: an array of all pieces on the chessboard.
 ***********************************/
+```js
+
     var layout=[];
      layout.push(
 Chess("ju",0,"red"),
@@ -268,16 +272,17 @@ function move(fid, tid){
          
      refresh();
 }
+```
 
 /*****************************************
        test area
 *****************************************/
-
+```js
  
   refresh();
 
 
-
+```
 
 
 
@@ -287,6 +292,7 @@ function move(fid, tid){
 the piece can go to the place from the origin.
 
 ******************************************/
+```js
 function rule(f, t){
     if(partner(f,t))return false;
     if(f.name=="ju")return ruleju(f,t);
@@ -443,6 +449,8 @@ if(t.y==f.y&&layout.filter(
 return false;
 }
 
+```
+
 /********************/
 /*****************
        define AI: AI(flag), for flags(red or black).
@@ -458,6 +466,9 @@ if any defend success, the defend function return true, otherwise,return false.
 
     AI can try to test a way of defence or attack by random, to see whether it improve the situation or not.
 ****************/
+
+```js
+
       function AI(flag){
           if(this==window)return new AI(flag);
           this.flag=flag;
@@ -580,7 +591,7 @@ var styleRule=`p{background-color:teal;}`;
 
 
 stylesheet.insertRule(styleRule, 0);
-
+```
 
 
 
