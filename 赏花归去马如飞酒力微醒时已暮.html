@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  #flower{
+    table-layout: auto;
+    width:300px;
+    height:300px;
+    transition:transform 1s;
+  }
+  td{
+    color:red;
+    font-size:30px;
+    transition: transform 2s;
+  }
+</style>
+</head>
+<body>
+<table id="flower">
+  <tr><td>赏</td><td>花</td><td>归</td><td>去</td></tr>
+  <tr><td>暮</td><td>🌸</td><td>🌺</td><td>马</td></tr>
+  <tr><td>已</td><td>🌷</td><td>🌼</td><td>如</td></tr>
+  <tr><td>时</td><td>💐</td><td>🌻</td><td>飞</td></tr>
+  <tr><td>醒</td><td>微</td><td>力</td><td>酒</td></tr>
+</table>
+<p>
+——秦少游(秦观)《回文诗》
+</p>
+<p>
+高邮才子秦少游是“苏门四学士”之一，他最得苏东坡
+的喜爱。传说有一回，苏轼去秦少游家，可是他却不在。
+家人告诉苏轼，秦少游外出游玩去了，很可能到佛印
+和尚那儿了。于是苏轼写信去询问他的情况，秦少游
+看到苏轼的来信后，就写了一封只有14字的怪信，
+派人带回给苏轼。苏轼看了信后，连声叫好，原来这
+封信是一首回文诗。内容如下：
+
+<p>赏花归去马如飞，去马如飞酒力微。</p>
+
+<p>酒力微醒时已暮，醒时已暮赏花归。</p>
+<p>
+回文诗又叫回环诗，可以正着读、反着读、横着读、
+斜着读，读起来回环往复，朗朗上口。给人感觉诗意
+绵延无尽，产生荡气回肠、兴趣盎然的美感。
+<p>
+璇玑图 是最厉害的回文诗
+</p>
+<script>
+  let shanghua='赏花归去马如飞酒力微醒时已暮'
+  let huiwen=[
+    '赏花归去马如飞',
+    '去马如飞酒力微',
+    '酒力微醒时已暮',
+    '醒时已暮赏花归'
+    ]
+</script>
+<script>
+  let t=0
+  let flower=document.querySelector('#flower')
+  flower.addEventListener('click',e=>{
+    
+    flower.style=`
+    background-color:black;
+    transform:rotate(${-t}deg)
+    `;
+    flower.querySelectorAll('td').forEach((x,i)=>{
+          let c=huiwen[(t/90)%4].includes(x.innerText)?`hsl(${360/20*i},100%,50%)`:`hsl(${360/20*i},50%,15%)`;
+          x.style=`
+          transform:rotate(${t}deg);
+          color:${c};
+          `
+    })
+    t+=90
+  })
+</script>
+</body>
+</html>
